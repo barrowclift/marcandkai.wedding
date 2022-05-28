@@ -182,19 +182,7 @@ $(document).ready(function(){
             if (MD5($('#form_invite_code').val()) !== '537b62e8f5c5a873bca8132021d87dec') {
                 document.getElementById("rsvp").innerHTML = "<strong>Sorry!</strong> Your invite code is incorrect.";
             } else {
-                $.post('https://script.google.com/macros/s/AKfycbx2ekDiVGrx8dJYE3awMem8TJ3lD_V8ICTXUsIBWF7oGW7fbfqTy5CfTkbrXV8U9eniDw/exec', data)
-                    .done(function (data) {
-                        console.log(JSON.stringify(data));
-                        if (data.result === "error") {
-                            document.getElementById("rsvp").innerHTML = data.message;
-                        } else {
-                            document.getElementById("rsvp").innerHTML = '<h5 style="font-weight:600;margin-bottom:0;">Thanks for RSVPing!</h5>';
-                        }
-                    })
-                    .fail(function (data) {
-                        console.log(data);
-                        document.getElementById("rsvp").innerHTML = '<strong>Sorry!</strong> There is some issue with the server.';
-                    });
+                document.getElementById("rsvp").innerHTML = "If the form was still active, your RSVP would have been sent.";
             }
         } catch (error) {
             document.getElementById("rsvp").innerHTML = '<strong>Sorry!</strong> There is some issue with the server.';
